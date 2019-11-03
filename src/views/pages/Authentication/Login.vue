@@ -80,7 +80,7 @@
     name: 'PagesLogin',
 
     components: {
-      PagesBtn: () => import('./components/Btn'),
+      PagesBtn: () => import('../components/Btn'),
     },
 
     data: () => ({

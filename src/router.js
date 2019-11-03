@@ -19,7 +19,7 @@ export default new Router({
         {
           name: 'Login',
           path: 'login',
-          component: () => import('@/views/pages/Login'),
+          component: () => import('@/views/pages/Authentication/Login'),
         },
         {
           name: 'Pricing',
@@ -42,6 +42,12 @@ export default new Router({
           name: 'Dashboard',
           path: '',
           component: () => import('@/views/dashboard/Dashboard'),
+        },
+        //Users
+        {
+          name: 'Users',
+          path: 'users/users',
+          component: () => import('@/views/dashboard/Users/Users'),
         },
         // Pages
         {

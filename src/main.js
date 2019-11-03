@@ -21,9 +21,10 @@ import './plugins/vee-validate'
 import './plugins/vue-world-map'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
+import VueLoading from "vuejs-loading-plugin";
 
 Vue.config.productionTip = false
-
+Vue.use(VueLoading);
 new Vue({
   router,
   store,

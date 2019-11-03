@@ -8,7 +8,7 @@
       <v-col cols="12">
         <base-material-card
           icon="mdi-earth"
-          title="Global Sales by Top Locations"
+          :title="$t('alert.confirm')"
         >
           <v-row>
             <v-col

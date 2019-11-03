@@ -16,7 +16,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          DataTables
+          Data users
         </div>
       </template>
 

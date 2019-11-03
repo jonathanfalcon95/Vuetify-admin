@@ -44,7 +44,8 @@
   "wizard": "Wizard",
   "alert": {
     "confirm": "Confirm this action",
-    "errors": "Errors"
+    "errors": "Error"
+
   },
   "message": {
     "apiError401": "Incorrect credentials",

@@ -214,6 +214,17 @@
             },
           ],
         },
+         {
+          group: '/users',
+          icon: 'mdi-grid',
+          title: 'users',
+          children: [
+            {
+              title: 'users',
+              to: 'users',
+            }
+          ],
+        },
         {
           group: '/maps',
           icon: 'mdi-map-marker',
