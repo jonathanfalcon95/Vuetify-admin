@@ -1,8 +1,18 @@
 <template>
-  <v-container id="data-tables" tag="section">
-    <base-material-card color="indigo" icon="mdi-vuetify" inline class="px-5 py-3">
+  <v-container
+    id="data-tables"
+    tag="section"
+  >
+    <base-material-card
+      color="indigo"
+      icon="mdi-vuetify"
+      inline
+      class="px-5 py-3"
+    >
       <template v-slot:after-heading>
-        <div class="display-2 font-weight-light">{{$t('users')}}</div>
+        <div class="display-2 font-weight-light">
+          {{ $t('users') }}
+        </div>
       </template>
 
       <v-text-field
@@ -27,8 +37,20 @@
         class="elevation-1"
       >
         <template v-slot:items.actions="{ items }">
-          <v-icon small class="mr-2"  @click="editItem(item)">edit</v-icon>
-          <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+          <v-icon
+            small
+            class="mr-2"
+            @click="editItem(item)"
+          >
+            edit
+          </v-icon>
+          <v-icon
+            small
+            class="mr-2"
+            @click="editItem(item)"
+          >
+            mdi-pencil
+          </v-icon>
         </template>
       </v-data-table>
     </base-material-card>
@@ -36,58 +58,57 @@
 </template>
 
 <script>
-import { getUsers } from "@/api/modules";
+  import { getUsers } from '@/api/modules'
 
-export default {
-  name: "DashboardDataTables",
+  export default {
+    name: 'DashboardDataTables',
 
-  data: () => ({
-    
-    headers: [
-      {
-        text: "id",
-        value: "person.id"
-      },
-      {
-        text: "name",
-        value: "person.fullname"
-      },
-      {
-        text: "email",
-        value: "person.email"
-      },
-      {
-        text: "phone",
-        value: "person.phone_number"
-      },
-      {
-        sortable: false,
-        text: "Actions",
-        value: "actions"
-      }
-    ],
-    items: [],
-    search: undefined
-  }),
-  methods: {
-    async loadUsersData() {
-      console.log("mounted");
-      let serviceResponse = await getUsers();
-      if (serviceResponse.ok==1) {
-        console.log(serviceResponse);
-        this.items = serviceResponse.data;
-      } else {
-        console.log(serviceResponse);
-        //const params = { text: serviceResponse.message.text };
-        //window.getApp.$emit("SHOW_ERROR", params);
-      }
+    data: () => ({
+      headers: [
+        {
+          text: 'id',
+          value: 'person.id',
+        },
+        {
+          text: 'name',
+          value: 'person.fullname',
+        },
+        {
+          text: 'email',
+          value: 'person.email',
+        },
+        {
+          text: 'phone',
+          value: 'person.phone_number',
+        },
+        {
+          sortable: false,
+          text: 'Actions',
+          value: 'actions',
+        },
+      ],
+      items: [],
+      search: undefined,
+    }),
+    async mounted () {
+      await this.loadUsersData()
     },
-    editItem (item) {
+    methods: {
+      async loadUsersData () {
+        console.log('mounted')
+        let serviceResponse = await getUsers()
+        if (serviceResponse.ok === 1) {
+          console.log(serviceResponse)
+          this.items = serviceResponse.data
+        } else {
+          console.log(serviceResponse)
+        // const params = { text: serviceResponse.message.text };
+        // window.getApp.$emit("SHOW_ERROR", params);
+        }
+      },
+      editItem (item) {
         console.log(item)
       },
-  },
-  async mounted() {
-    await this.loadUsersData();
+    },
   }
-};
 </script>

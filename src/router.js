@@ -43,7 +43,7 @@ export default new Router({
           path: '',
           component: () => import('@/views/dashboard/Dashboard'),
         },
-        //Users
+        // Users
         {
           name: 'Users',
           path: 'users/users',

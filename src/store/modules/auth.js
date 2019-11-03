@@ -1,123 +1,121 @@
-import { LOGIN_USER, LOGOUT_USER, UPDATE_PERSON } from "../mutation-types";
+import { LOGIN_USER, LOGOUT_USER, UPDATE_PERSON } from '../mutation-types'
 
 import {
   loginApi,
   updateUserApi,
   createAppPersonApi,
-  getAppPersonApi
-} from "@/api/modules";
+  getAppPersonApi,
+} from '@/api/modules'
 
-import router from "@/router";
-import { USER_STATUS_PENDING, USER_TYPE_WORKSTATION } from "@/config/constants";
+import router from '@/router'
+import { USER_STATUS_PENDING, USER_TYPE_WORKSTATION } from '@/config/constants'
 
 const initialState = {
   user: {
-    person: {}
+    person: {},
   },
-  logged: false
-};
+  logged: false,
+}
 
 const state = {
-  ...initialState
-};
+  ...initialState,
+}
 
 const getters = {
   user: state => state.user,
-  logged: state => state.logged
-};
+  logged: state => state.logged,
+}
 
 const mutations = {
   [LOGIN_USER]: (state, payload) => {
-    state.user = payload;
-    state.logged = true;
+    state.user = payload
+    state.logged = true
   },
   [LOGOUT_USER]: state => {
-    state.user = initialState.user;
-    state.logged = initialState.logged;
+    state.user = initialState.user
+    state.logged = initialState.logged
   },
   [UPDATE_PERSON]: (state, payload) => {
     state.user.person = {
       ...state.user.person,
-      ...payload
-      //fullname: payload.first_name + " " + payload.last_name
-    };
-  }
-};
+      ...payload,
+      // fullname: payload.first_name + " " + payload.last_name
+    }
+  },
+}
 
 const savePersonId = async email => {
-  console.log(email);
-  let serviceResponsePerson = await getAppPersonApi(email);
+  console.log(email)
+  let serviceResponsePerson = await getAppPersonApi(email)
   if (serviceResponsePerson.ok) {
-    localStorage.setItem("person_id", serviceResponsePerson.data.id);
-    router.push({ name: "Home" });
+    localStorage.setItem('person_id', serviceResponsePerson.data.id)
+    router.push({ name: 'Home' })
   }
-};
+}
 
 const actions = {
-  async loginAction({ commit, dispatch }, payload) {
-    let serviceResponse = await loginApi(payload);
+  async loginAction ({ commit, dispatch }, payload) {
+    let serviceResponse = await loginApi(payload)
     if (serviceResponse.ok) {
       if (serviceResponse.data.type === USER_TYPE_WORKSTATION) {
-        const params = { text: "Credenciales Incorrectas" };
-        window.getApp.$emit("SHOW_ERROR", params);
+        const params = { text: 'Credenciales Incorrectas' }
+        window.getApp.$emit('SHOW_ERROR', params)
       } else {
-        commit(LOGIN_USER, serviceResponse.data);
-        localStorage.setItem("user_id", serviceResponse.data.id);
-        localStorage.setItem("email", serviceResponse.data.email);
-        localStorage.setItem("password", payload.password);
-        localStorage.setItem("userType", serviceResponse.data.type);
-        if (serviceResponse.data.status === USER_STATUS_PENDING)
-          router.push({ name: "SignupPage" });
-        else {
-          await savePersonId(serviceResponse.data.email);
+        commit(LOGIN_USER, serviceResponse.data)
+        localStorage.setItem('user_id', serviceResponse.data.id)
+        localStorage.setItem('email', serviceResponse.data.email)
+        localStorage.setItem('password', payload.password)
+        localStorage.setItem('userType', serviceResponse.data.type)
+        if (serviceResponse.data.status === USER_STATUS_PENDING) { router.push({ name: 'SignupPage' }) } else {
+          await savePersonId(serviceResponse.data.email)
         }
-        dispatch("getAppToken");
+        dispatch('getAppToken')
       }
     } else {
-      const params = { text: serviceResponse.message.text };
-      window.getApp.$emit("SHOW_ERROR", params);
-      router.push({ name: "LoginPage" });
+      const params = { text: serviceResponse.message.text }
+      window.getApp.$emit('SHOW_ERROR', params)
+      router.push({ name: 'LoginPage' })
     }
   },
-  logoutAction({ commit, dispatch }) {
-    localStorage.clear();
-    commit(LOGOUT_USER);
-    dispatch("cleanApp");
-    //router.push({ name: "LoginPage" });
+  logoutAction ({ commit, dispatch }) {
+    localStorage.clear()
+    commit(LOGOUT_USER)
+    dispatch('cleanApp')
+    // router.push({ name: "LoginPage" });
   },
-  async updatePersonAction({ commit, state }, payload) {
-    const { id } = state.user;
-    let serviceResponse = await updateUserApi(id, payload);
+  async updatePersonAction ({ commit, state }, payload) {
+    const { id } = state.user
+    let serviceResponse = await updateUserApi(id, payload)
     if (serviceResponse.ok) {
-      const params = { text: serviceResponse.message.text };
-      window.getApp.$emit("SHOW_MESSAGE", params);
-      commit(UPDATE_PERSON, payload);
-      router.push({ name: "Home" });
+      const params = { text: serviceResponse.message.text }
+      window.getApp.$emit('SHOW_MESSAGE', params)
+      commit(UPDATE_PERSON, payload)
+      router.push({ name: 'Home' })
     } else {
-      const params = { text: serviceResponse.message.text };
-      window.getApp.$emit("SHOW_ERROR", params);
+      const params = { text: serviceResponse.message.text }
+      window.getApp.$emit('SHOW_ERROR', params)
     }
   },
-  async createAppPersonAction({ commit, state }, payload) {
-    const { id } = state.user;
-    let serviceResponse = await createAppPersonApi(id, payload);
+  async createAppPersonAction ({ commit, state }, payload) {
+    const { id } = state.user
+    let serviceResponse = await createAppPersonApi(id, payload)
     if (serviceResponse.ok) {
-      localStorage.setItem("password", payload.password);
-      await savePersonId(state.user.email);
-      const params = { text: serviceResponse.message.text };
-      window.getApp.$emit("SHOW_MESSAGE", params);
-      commit(UPDATE_PERSON, payload);
-      router.push({ name: "Home" });
+      localStorage.setItem('password', payload.password)
+      await savePersonId(state.user.email)
+      const params = { text: serviceResponse.message.text }
+      window.getApp.$emit('SHOW_MESSAGE', params)
+      commit(UPDATE_PERSON, payload)
+      router.push({ name: 'Home' })
     } else {
-      const params = { text: serviceResponse.message.text };
-      window.getApp.$emit("SHOW_ERROR", params);
+      const params = { text: serviceResponse.message.text }
+      window.getApp.$emit('SHOW_ERROR', params)
     }
-  }
-};
+  },
+}
 
 export default {
   state,
   getters,
   mutations,
-  actions
-};
+  actions,
+}

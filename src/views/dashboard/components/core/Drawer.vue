@@ -214,7 +214,7 @@
             },
           ],
         },
-         {
+        {
           group: '/users',
           icon: 'mdi-grid',
           title: 'users',
@@ -222,7 +222,7 @@
             {
               title: 'users',
               to: 'users',
-            }
+            },
           ],
         },
         {

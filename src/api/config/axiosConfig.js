@@ -1,8 +1,8 @@
 const config = {
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
-  }
-};
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+}
 
-export default config;
+export default config
