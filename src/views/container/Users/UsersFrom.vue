@@ -9,7 +9,7 @@
         <template v-slot:after-heading>
           <div class="font-weight-light card-title mt-2">
             Edit Profile
-            <span class="body-1">— Complete your profile</span>
+            <span class="body-1" />
           </div>
         </template>
 

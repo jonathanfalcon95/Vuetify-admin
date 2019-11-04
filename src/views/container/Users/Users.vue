@@ -44,7 +44,7 @@
             fab
             class="px-1 ml-1"
             x-small
-            @click="editUser(item)"
+            @click="showUser(item)"
           >
             <v-icon
               small
@@ -142,6 +142,12 @@
         // const params = { text: serviceResponse.message.text };
         // window.getApp.$emit("SHOW_ERROR", params);
         }
+      },
+      createdUser () {
+        console.log('create')
+      },
+      showUser (item) {
+        console.log(item)
       },
       editUser (item) {
         console.log(item)
