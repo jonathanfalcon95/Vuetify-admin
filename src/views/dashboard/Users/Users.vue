@@ -27,14 +27,28 @@
         class="elevation-1"
       >
         <template v-slot:item.actions="{ item }">
-          <v-btn
+           <v-btn
                
                 :key="1"
+                color="blue"
+                fab
+                class="px-1 ml-1"
+                x-small
+                @click="editUser(item)"
+              >
+                <v-icon
+                  small
+                  v-text="'mdi-eye'"
+                />
+              </v-btn>
+          <v-btn
+               
+                :key="2"
                 color="primary"
                 fab
                 class="px-1 ml-1"
                 x-small
-                @click="editItem(item)"
+                @click="editUser(item)"
               >
                 <v-icon
                   small
@@ -43,12 +57,12 @@
               </v-btn>
            <v-btn
                
-                :key="2"
+                :key="3"
                 color="secondary"
                 fab
                 class="px-1 ml-1"
                 x-small
-                @click="editItem(item)"
+                @click="deleteUser(item)"
               >
                 <v-icon
                   small
@@ -104,7 +118,7 @@ export default {
     search: undefined
   }),
   async mounted() {
-   // await this.loadUsersData();
+    await this.loadUsersData();
   },
   methods: {
     async loadUsersData() {
@@ -119,8 +133,18 @@ export default {
         // window.getApp.$emit("SHOW_ERROR", params);
       }
     },
-    editItem(item) {
-      console.log(item);
+    editUser(item) {
+        console.log(item);
+        this.$router.push({
+        name: "UsersFrom",
+         params: {
+          userData: item
+        }
+      });
+    },
+    deleteUser(item){
+     console.log(item);
+     console.log("Delete")
     }
   }
 };

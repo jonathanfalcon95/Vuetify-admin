@@ -49,6 +49,11 @@ export default new Router({
           path: 'users/users',
           component: () => import('@/views/dashboard/Users/Users'),
         },
+        {
+          name: 'UsersFrom',
+          path: 'users/form',
+          component: () => import('@/views/dashboard/Users/UsersFrom'),
+        },
         // Pages
         {
           name: 'RTL',
