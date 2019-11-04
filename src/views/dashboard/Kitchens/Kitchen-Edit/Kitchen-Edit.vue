@@ -1,5 +1,8 @@
 <template>
-  <v-container id="data-tables" tag="section">
+  <v-container
+    id="data-tables"
+    tag="section"
+  >
     <base-material-card
       color="indigo"
       icon="mdi-coffee-maker"
@@ -30,14 +33,14 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-  }),
-  created() {
-  },
-  computed: {
+  export default {
+    data: () => ({
+    }),
+    computed: {
+    },
+    created () {
+    },
   }
-};
 </script>
 
 <style>

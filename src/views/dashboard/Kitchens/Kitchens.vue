@@ -1,5 +1,8 @@
 <template>
-  <v-container id="data-tables" tag="section">
+  <v-container
+    id="data-tables"
+    tag="section"
+  >
     <base-material-card
       color="indigo"
       icon="mdi-coffee-maker"
@@ -39,12 +42,15 @@
             :key="i"
             :color="action.color"
             class="ml-1 text-right"
-            @click="onHandlerAction(action.router)"
             fab
             icon
             x-small
+            @click="onHandlerAction(action.router)"
           >
-            <v-icon small v-text="action.icon" />
+            <v-icon
+              small
+              v-text="action.icon"
+            />
           </v-btn>
         </template>
       </v-data-table>
@@ -56,12 +62,13 @@
           <v-btn
             :key="activeFab.icon"
             :color="activeFab.color"
-            dark v-on="on"
+            dark
             fab
             large
             bottom
             left
             class="v-btn--example"
+            v-on="on"
           >
             <v-icon>{{ activeFab.icon }}</v-icon>
           </v-btn>
@@ -73,92 +80,91 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    search: "",
-    actions: [
-      {
-        color: "info",
-        icon: "mdi-information-outline",
-        router:"kitchens-show"
+  export default {
+    data: () => ({
+      search: '',
+      actions: [
+        {
+          color: 'info',
+          icon: 'mdi-information-outline',
+          router: 'kitchens-show',
+        },
+        {
+          color: 'success',
+          icon: 'mdi-pencil',
+          router: 'kitchens-edit',
+        },
+        {
+          color: 'error',
+          icon: 'mdi-close',
+        },
+      ],
+      headers: [
+        // Por definir
+        {
+          text: 'id',
+          value: 'id',
+        },
+        {
+          text: 'name',
+          value: 'fullname',
+        },
+        {
+          text: 'email',
+          value: 'email',
+        },
+        {
+          text: 'phone',
+          value: 'phone_number',
+        },
+        {
+          sortable: false,
+          text: 'Actions',
+          value: 'actions',
+          align: 'right',
+        },
+      ],
+      person: [
+        {
+          id: '1111',
+          fullname: 'Carlos',
+          email: 'asdas',
+          phone_number: '123123',
+        },
+        {
+          id: '222',
+          fullname: 'Vic',
+          email: 'asdas',
+          phone_number: '123123',
+        },
+      ],
+      fab: null,
+      hidden: false,
+      tabs: 'one',
+    }),
+    computed: {
+      activeFab () {
+        switch (this.tabs) {
+          case 'one':
+            return { color: 'success', icon: 'mdi-plus' }
+          case 'two':
+            return { color: 'red', icon: 'edit' }
+          case 'three':
+            return { color: 'green', icon: 'keyboard_arrow_up' }
+          default:
+            return {}
+        }
       },
-      {
-        color: "success",
-        icon: "mdi-pencil",
-        router:'kitchens-edit'
+    },
+    created () {
+      console.log(this.person)
+    },
+    methods: {
+      onHandlerAction (router) {
+        this.$router.push(router)
       },
-      {
-        color: "error",
-        icon: "mdi-close"
-      }
-    ],
-    headers: [
-      //Por definir
-      {
-        text: "id",
-        value: "id"
-      },
-      {
-        text: "name",
-        value: "fullname"
-      },
-      {
-        text: "email",
-        value: "email"
-      },
-      {
-        text: "phone",
-        value: "phone_number"
-      },
-      {
-        sortable: false,
-        text: "Actions",
-        value: "actions",
-        align: "right"
-      }
-    ],
-    person: [
-      {
-        id: "1111",
-        fullname: "Carlos",
-        email: "asdas",
-        phone_number: "123123"
-      },
-      {
-        id: "222",
-        fullname: "Vic",
-        email: "asdas",
-        phone_number: "123123"
-      }
-    ],
-    search: undefined,
-    fab: null,
-    hidden: false,
-    tabs: "one"
-  }),
-  created() {
-    console.log(this.person);
-  },
-  computed: {
-    activeFab() {
-      switch (this.tabs) {
-        case "one":
-          return { color: "success", icon: "mdi-plus" };
-        case "two":
-          return { color: "red", icon: "edit" };
-        case "three":
-          return { color: "green", icon: "keyboard_arrow_up" };
-        default:
-          return {};
-      }
-    }
-  },
-  methods:{
-    onHandlerAction(router){
-      this.$router.push(router);
-    }
+    },
   }
-};
 </script>
 
 <style>
