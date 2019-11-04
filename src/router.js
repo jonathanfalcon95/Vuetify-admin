@@ -49,6 +49,31 @@ export default new Router({
           path: 'users/users',
           component: () => import('@/views/dashboard/Users/Users'),
         },
+        // Kitchen
+        {
+          name: 'Kitchens',
+          path: 'kitchens/kitchens',
+          component: () => import('@/views/dashboard/Kitchens/Kitchens'),
+
+        },
+        {
+          name: 'Kitchens-Edit',
+          path: 'kitchens/kitchens-edit',
+          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit/Kitchen-Edit'),
+
+        },
+        {
+          name: 'Kitchens-Show',
+          path: 'kitchens/kitchens-show',
+          component: () => import('@/views/dashboard/Kitchens/Kitchen-Show/Kitchen-Show'),
+
+        },
+        // Kitchen
+        {
+          name: 'Vendors',
+          path: 'vendors/vendors',
+          component: () => import('@/views/dashboard/Vendors/Vendors'),
+        },
         // Pages
         {
           name: 'RTL',

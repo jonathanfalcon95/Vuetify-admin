@@ -54,5 +54,15 @@
     "apiErrorUndefined": "General Application Error",
     "invalidKey": "Invalid key",
     "succesfulPay": "Succesful pay!"
+  },
+  "kitchens":{
+    "kitchen":"Kitchen",
+    "kitchens":"Kitchens",
+    "kitchen-edit":"Edit Kitchen",
+    "kitchen-show":"Kitchen"
+  },
+  "vendors":{
+    "vendor":"Vendor",
+    "vendors":"Vendors"
   }
 }
