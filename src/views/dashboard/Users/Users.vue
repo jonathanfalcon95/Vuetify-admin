@@ -1,8 +1,18 @@
 <template>
-  <v-container id="data-tables" tag="section">
-    <base-material-card color="indigo" icon="mdi-vuetify" inline class="px-5 py-3">
+  <v-container
+    id="data-tables"
+    tag="section"
+  >
+    <base-material-card
+      color="indigo"
+      icon="mdi-vuetify"
+      inline
+      class="px-5 py-3"
+    >
       <template v-slot:after-heading>
-        <div class="display-2 font-weight-light">{{ $t('users') }}</div>
+        <div class="display-2 font-weight-light">
+          {{ $t('users') }}
+        </div>
       </template>
 
       <v-text-field
@@ -27,48 +37,48 @@
         class="elevation-1"
       >
         <template v-slot:item.actions="{ item }">
-           <v-btn
-               
-                :key="1"
-                color="blue"
-                fab
-                class="px-1 ml-1"
-                x-small
-                @click="editUser(item)"
-              >
-                <v-icon
-                  small
-                  v-text="'mdi-eye'"
-                />
-              </v-btn>
           <v-btn
-               
-                :key="2"
-                color="primary"
-                fab
-                class="px-1 ml-1"
-                x-small
-                @click="editUser(item)"
-              >
-                <v-icon
-                  small
-                  v-text="'mdi-pencil'"
-                />
-              </v-btn>
-           <v-btn
-               
-                :key="3"
-                color="secondary"
-                fab
-                class="px-1 ml-1"
-                x-small
-                @click="deleteUser(item)"
-              >
-                <v-icon
-                  small
-                  v-text="'mdi-delete'"
-                />
-              </v-btn>
+
+            :key="1"
+            color="blue"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="editUser(item)"
+          >
+            <v-icon
+              small
+              v-text="'mdi-eye'"
+            />
+          </v-btn>
+          <v-btn
+
+            :key="2"
+            color="primary"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="editUser(item)"
+          >
+            <v-icon
+              small
+              v-text="'mdi-pencil'"
+            />
+          </v-btn>
+          <v-btn
+
+            :key="3"
+            color="secondary"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="deleteUser(item)"
+          >
+            <v-icon
+              small
+              v-text="'mdi-delete'"
+            />
+          </v-btn>
         </template>
       </v-data-table>
     </base-material-card>
@@ -76,76 +86,76 @@
 </template>
 
 <script>
-import { getUsers } from "@/api/modules";
+  import { getUsers } from '@/api/modules'
 
-export default {
-  name: "DashboardDataTables",
+  export default {
+    name: 'DashboardDataTables',
 
-  data: () => ({
-    headers: [
-      {
-        text: "id",
-        value: "person.id"
-      },
-      {
-        text: "name",
-        value: "person.fullname"
-      },
-      {
-        text: "email",
-        value: "person.email"
-      },
-      {
-        text: "phone",
-        value: "person.phone_number"
-      },
-      {
-        sortable: false,
-        text: "Actions",
-        value: "actions"
-      }
-    ],
-    items: [
-      {
-        person: {
-          id: 1,
-          fullname: "algo",
-          email: "este@gmail.com",
-          phone_number: "2323232323"
-        }
-      }
-    ],
-    search: undefined
-  }),
-  async mounted() {
-    await this.loadUsersData();
-  },
-  methods: {
-    async loadUsersData() {
-      console.log("mounted");
-      let serviceResponse = await getUsers();
-      if (serviceResponse.ok === 1) {
-        console.log(serviceResponse);
-        this.items = serviceResponse.data;
-      } else {
-        console.log(serviceResponse);
+    data: () => ({
+      headers: [
+        {
+          text: 'id',
+          value: 'person.id',
+        },
+        {
+          text: 'name',
+          value: 'person.fullname',
+        },
+        {
+          text: 'email',
+          value: 'person.email',
+        },
+        {
+          text: 'phone',
+          value: 'person.phone_number',
+        },
+        {
+          sortable: false,
+          text: 'Actions',
+          value: 'actions',
+        },
+      ],
+      items: [
+        {
+          person: {
+            id: 1,
+            fullname: 'algo',
+            email: 'este@gmail.com',
+            phone_number: '2323232323',
+          },
+        },
+      ],
+      search: undefined,
+    }),
+    async mounted () {
+      await this.loadUsersData()
+    },
+    methods: {
+      async loadUsersData () {
+        console.log('mounted')
+        let serviceResponse = await getUsers()
+        if (serviceResponse.ok === 1) {
+          console.log(serviceResponse)
+          this.items = serviceResponse.data
+        } else {
+          console.log(serviceResponse)
         // const params = { text: serviceResponse.message.text };
         // window.getApp.$emit("SHOW_ERROR", params);
-      }
-    },
-    editUser(item) {
-        console.log(item);
-        this.$router.push({
-        name: "UsersFrom",
-         params: {
-          userData: item
         }
-      });
+      },
+      editUser (item) {
+        console.log(item)
+        this.$router.push({
+          name: 'UsersFrom',
+          params: {
+            userData: item,
+          },
+        })
+      },
+      deleteUser (item) {
+        console.log(item)
+        console.log('Delete')
+      },
     },
-    deleteUser(item){
-     console.log(item);
-     console.log("Delete")
-    }
   }
-};
 </script>

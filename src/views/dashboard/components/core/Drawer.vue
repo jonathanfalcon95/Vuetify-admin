@@ -21,8 +21,8 @@
     <v-list-item two-line>
       <v-list-item-content>
         <v-list-item-title class="text-uppercase font-weight-regular display-2">
-          <span class="logo-mini">{{ $t('ct') }}</span>
-          <span class="logo-normal">{{ $t('tim') }}</span>
+          <span class="logo-mini">{{ $t("ct") }}</span>
+          <span class="logo-normal">{{ $t("tim") }}</span>
         </v-list-item-title>
       </v-list-item-content>
     </v-list-item>
@@ -70,10 +70,8 @@
 </template>
 
 <script>
-  // Utilities
-  import {
-    mapState,
-  } from 'vuex'
+// Utilities
+  import { mapState } from 'vuex'
 
   export default {
     name: 'DashboardCoreDrawer',
@@ -222,6 +220,28 @@
             {
               title: 'users',
               to: 'users',
+            },
+          ],
+        },
+        {
+          group: '/kitchens',
+          icon: 'mdi-coffee-maker',
+          title: 'kitchens.kitchens',
+          children: [
+            {
+              title: 'kitchens.kitchens',
+              to: 'kitchens',
+            },
+          ],
+        },
+        {
+          group: '/vendors',
+          icon: 'mdi-account-tie',
+          title: 'vendors.vendors',
+          children: [
+            {
+              title: 'vendors.vendors',
+              to: 'vendors',
             },
           ],
         },
