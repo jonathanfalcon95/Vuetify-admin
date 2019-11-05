@@ -35,159 +35,159 @@ export default new Router({
     },
     {
       path: '/',
-      component: () => import('@/views/dashboard/Index'),
+      component: () => import('@/views/container/Index'),
       children: [
         // Dashboard
         {
           name: 'Dashboard',
           path: '',
-          component: () => import('@/views/dashboard/Dashboard'),
+          component: () => import('@/views/container/Dashboard'),
         },
         // Users
         {
           name: 'Users',
           path: 'users/users',
-          component: () => import('@/views/dashboard/Users/Users'),
+          component: () => import('@/views/container/Users/Users'),
+        },
+        {
+          name: 'UsersFrom',
+          path: 'users/form',
+          component: () => import('@/views/container/Users/UsersFrom'),
         },
         // Kitchen
         {
           name: 'Kitchens',
           path: 'kitchens/kitchens',
-          component: () => import('@/views/dashboard/Kitchens/Kitchens'),
+          component: () => import('@/views/container/Kitchens/Kitchens'),
 
         },
         {
-          name: 'Kitchens-Edit',
-          path: 'kitchens/kitchens-edit/:id',
-          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit'),
+          name: 'KitchensForm',
+          path: 'kitchens/form',
+          component: () => import('@/views/container/Kitchens/KitchenForm'),
 
         },
         {
           name: 'Kitchens-Show',
-          path: 'kitchens/kitchens-show/:id',
-          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit'),
-        },
-        {
-          name: 'Kitchens-Create',
-          path: 'kitchens/kitchens-create',
-          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit'),
+          path: 'kitchens/kitchens-show',
+          component: () => import('@/views/container/Kitchens/KitchenForm'),
         },
         // Kitchen
         {
           name: 'Vendors',
           path: 'vendors/vendors',
-          component: () => import('@/views/dashboard/Vendors/Vendors'),
+          component: () => import('@/views/container/Vendors/Vendors'),
         },
         // Pages
         {
           name: 'RTL',
           path: 'pages/rtl',
-          component: () => import('@/views/dashboard/pages/Rtl'),
+          component: () => import('@/views/container/pages/Rtl'),
         },
         {
           name: 'User Profile',
           path: 'pages/user',
-          component: () => import('@/views/dashboard/pages/UserProfile'),
+          component: () => import('@/views/container/pages/UserProfile'),
         },
         {
           name: 'Timeline',
           path: 'pages/timeline',
-          component: () => import('@/views/dashboard/pages/Timeline'),
+          component: () => import('@/views/container/pages/Timeline'),
         },
         // Components
         {
           name: 'Buttons',
           path: 'components/buttons',
-          component: () => import('@/views/dashboard/component/Buttons'),
+          component: () => import('@/views/container/component/Buttons'),
         },
         {
           name: 'Grid System',
           path: 'components/grid-system',
-          component: () => import('@/views/dashboard/component/Grid'),
+          component: () => import('@/views/container/component/Grid'),
         },
         {
           name: 'Tabs',
           path: 'components/tabs',
-          component: () => import('@/views/dashboard/component/Tabs'),
+          component: () => import('@/views/container/component/Tabs'),
         },
         {
           name: 'Notifications',
           path: 'components/notifications',
-          component: () => import('@/views/dashboard/component/Notifications'),
+          component: () => import('@/views/container/component/Notifications'),
         },
         {
           name: 'Icons',
           path: 'components/icons',
-          component: () => import('@/views/dashboard/component/Icons'),
+          component: () => import('@/views/container/component/Icons'),
         },
         {
           name: 'Typography',
           path: 'components/typography',
-          component: () => import('@/views/dashboard/component/Typography'),
+          component: () => import('@/views/container/component/Typography'),
         },
         // Forms
         {
           name: 'Regular Forms',
           path: 'forms/regular',
-          component: () => import('@/views/dashboard/forms/RegularForms'),
+          component: () => import('@/views/container/forms/RegularForms'),
         },
         {
           name: 'Extended Forms',
           path: 'forms/extended',
-          component: () => import('@/views/dashboard/forms/ExtendedForms'),
+          component: () => import('@/views/container/forms/ExtendedForms'),
         },
         {
           name: 'Validation Forms',
           path: 'forms/validation',
-          component: () => import('@/views/dashboard/forms/ValidationForms'),
+          component: () => import('@/views/container/forms/ValidationForms'),
         },
         {
           name: 'Wizard',
           path: 'forms/wizard',
-          component: () => import('@/views/dashboard/forms/Wizard'),
+          component: () => import('@/views/container/forms/Wizard'),
         },
         // Tables
         {
           name: 'Regular Tables',
           path: 'tables/regular-tables',
-          component: () => import('@/views/dashboard/tables/RegularTables'),
+          component: () => import('@/views/container/tables/RegularTables'),
         },
         {
           name: 'Extended Tables',
           path: 'tables/extended-tables',
-          component: () => import('@/views/dashboard/tables/ExtendedTables'),
+          component: () => import('@/views/container/tables/ExtendedTables'),
         },
         {
           name: 'Data Tabels',
           path: 'tables/data-tables',
-          component: () => import('@/views/dashboard/tables/DataTables'),
+          component: () => import('@/views/container/tables/DataTables'),
         },
         // Maps
         {
           name: 'Google Maps',
           path: 'maps/google-maps',
-          component: () => import('@/views/dashboard/maps/GoogleMaps'),
+          component: () => import('@/views/container/maps/GoogleMaps'),
         },
         {
           name: 'Full Screen Map',
           path: 'maps/full-screen-map',
-          component: () => import('@/views/dashboard/maps/FullScreenMap'),
+          component: () => import('@/views/container/maps/FullScreenMap'),
         },
         // Root level
         {
           name: 'Widgets',
           path: 'widgets',
-          component: () => import('@/views/dashboard/Widgets'),
+          component: () => import('@/views/container/Widgets'),
         },
         {
           name: 'Charts',
           path: 'charts',
-          component: () => import('@/views/dashboard/Charts'),
+          component: () => import('@/views/container/Charts'),
         },
         {
           name: 'Calendar',
           path: 'calendar',
-          component: () => import('@/views/dashboard/Calendar'),
+          component: () => import('@/views/container/Calendar'),
         },
       ],
     },

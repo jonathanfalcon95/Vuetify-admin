@@ -36,21 +36,49 @@
         multi-sort
         class="elevation-1"
       >
-        <template v-slot:items.actions="{ items }">
-          <v-icon
-            small
-            class="mr-2"
-            @click="editItem(item)"
+        <template v-slot:item.actions="{ item }">
+          <v-btn
+
+            :key="1"
+            color="blue"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="showUser(item)"
           >
-            edit
-          </v-icon>
-          <v-icon
-            small
-            class="mr-2"
-            @click="editItem(item)"
+            <v-icon
+              small
+              v-text="'mdi-eye'"
+            />
+          </v-btn>
+          <v-btn
+
+            :key="2"
+            color="primary"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="editUser(item)"
           >
-            mdi-pencil
-          </v-icon>
+            <v-icon
+              small
+              v-text="'mdi-pencil'"
+            />
+          </v-btn>
+          <v-btn
+
+            :key="3"
+            color="secondary"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="deleteUser(item)"
+          >
+            <v-icon
+              small
+              v-text="'mdi-delete'"
+            />
+          </v-btn>
         </template>
       </v-data-table>
     </base-material-card>
@@ -87,7 +115,16 @@
           value: 'actions',
         },
       ],
-      items: [],
+      items: [
+        {
+          person: {
+            id: 1,
+            fullname: 'algo',
+            email: 'este@gmail.com',
+            phone_number: '2323232323',
+          },
+        },
+      ],
       search: undefined,
     }),
     async mounted () {
@@ -106,8 +143,24 @@
         // window.getApp.$emit("SHOW_ERROR", params);
         }
       },
-      editItem (item) {
+      createdUser () {
+        console.log('create')
+      },
+      showUser (item) {
         console.log(item)
+      },
+      editUser (item) {
+        console.log(item)
+        this.$router.push({
+          name: 'UsersFrom',
+          params: {
+            userData: item,
+          },
+        })
+      },
+      deleteUser (item) {
+        console.log(item)
+        console.log('Delete')
       },
     },
   }
