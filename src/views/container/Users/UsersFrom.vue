@@ -128,6 +128,8 @@
 <script>
   export default {
     data: () => ({
+      option: 0,
+      title: '',
       userData: {
         status: '',
         status_str: '',
@@ -141,8 +143,13 @@
     }),
 
     mounted () {
-      this.userData = this.$route.params.userData
-      console.log(this.userData)
+      this.option = this.$route.params.option
+      this.title = this.$route.params.title
+      if (this.option === 3) {
+        this.userData = this.$route.params.userData
+      }
+
+      console.log(this.option)
     }, //
   }
 </script>
