@@ -23,13 +23,19 @@
               cols="12"
               md="6"
             >
-              <v-text-field label="Kitchen Name" v-model="this.itemData.fullname"/>
+              <v-text-field
+                v-model="this.itemData.fullname"
+                label="Kitchen Name"
+              />
             </v-col>
             <v-col
               cols="12"
               md="6"
             >
-              <v-text-field label="Kitchen Email" v-model="this.itemData.email" />
+              <v-text-field
+                v-model="this.itemData.email"
+                label="Kitchen Email"
+              />
             </v-col>
 
             <v-col
@@ -74,18 +80,17 @@
               <v-text-field label="Phone number" />
             </v-col>
 
-
-              <v-col
-                cols="12"
-                class="text-right"
+            <v-col
+              cols="12"
+              class="text-right"
+            >
+              <v-btn
+                color="success"
+                class="mr-0"
               >
-                <v-btn
-                  color="success"
-                  class="mr-0"
-                >
-                  Update Kitchen
-                </v-btn>
-              </v-col>
+                Update Kitchen
+              </v-btn>
+            </v-col>
           </v-row>
         </v-container>
       </v-form>
@@ -106,7 +111,7 @@
 <script>
   export default {
     data: () => ({
-      itemData:{}
+      itemData: {},
     }),
 
     computed: {
@@ -123,14 +128,15 @@
         }
       },
     },
-    mounted(){
-      this.itemData=this.$route.params.itemData;
-      console.log(this.$route.params.itemData);
-    },methods:{
-      onBack(){
-        this.$router.push({name:'Kitchens'})
-      }
-    }
+    mounted () {
+      this.itemData = this.$route.params.itemData
+      console.log(this.$route.params.itemData)
+    },
+    methods: {
+      onBack () {
+        this.$router.push({ name: 'Kitchens' })
+      },
+    },
   }
 </script>
 

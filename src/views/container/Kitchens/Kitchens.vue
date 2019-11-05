@@ -1,5 +1,8 @@
 <template>
-  <v-container id="data-tables" tag="section">
+  <v-container
+    id="data-tables"
+    tag="section"
+  >
     <base-material-card
       color="indigo"
       icon="mdi-coffee-maker"
@@ -34,7 +37,7 @@
         class="elevation-1 text-right"
       >
         <template v-slot:item.actions="{ item }">
-   <v-btn
+          <v-btn
 
             :key="1"
             color="blue"
@@ -105,110 +108,109 @@
 </template>
 
 <script>
-export default {
-  data: () => ({
-    search: "",
-    actions: [
-      {
-        color: "blue",
-        icon: "mdi-eye",
-        mode: "show"
+  export default {
+    data: () => ({
+      search: '',
+      actions: [
+        {
+          color: 'blue',
+          icon: 'mdi-eye',
+          mode: 'show',
+        },
+        {
+          color: 'primary',
+          icon: 'mdi-pencil',
+          mode: 'edit',
+        },
+        {
+          color: 'secondary',
+          icon: 'mdi-delete',
+        },
+      ],
+      headers: [
+        // Por definir
+        {
+          text: 'id',
+          value: 'id',
+        },
+        {
+          text: 'name',
+          value: 'fullname',
+        },
+        {
+          text: 'email',
+          value: 'email',
+        },
+        {
+          text: 'phone',
+          value: 'phone_number',
+        },
+        {
+          sortable: false,
+          text: 'Actions',
+          value: 'actions',
+          align: 'right',
+        },
+      ],
+      person: [
+        {
+          id: '1111',
+          fullname: 'Carlos',
+          email: 'asdas',
+          phone_number: '123123',
+        },
+        {
+          id: '222',
+          fullname: 'Vic',
+          email: 'asdas',
+          phone_number: '123123',
+        },
+      ],
+      fab: null,
+      hidden: false,
+      tabs: 'one',
+    }),
+    computed: {
+      activeFab () {
+        switch (this.tabs) {
+          case 'one':
+            return { color: 'success', icon: 'mdi-plus' }
+          case 'two':
+            return { color: 'red', icon: 'edit' }
+          case 'three':
+            return { color: 'green', icon: 'keyboard_arrow_up' }
+          default:
+            return {}
+        }
       },
-      {
-        color: "primary",
-        icon: "mdi-pencil",
-        mode: "edit"
+    },
+    methods: {
+      showKitchen: function (item) {
+        this.$router.push({
+          name: 'KitchensForm',
+          query: { mode: 'show' },
+          params: { itemData: item },
+        })
       },
-      {
-        color: "secondary",
-        icon: "mdi-delete"
-      }
-    ],
-    headers: [
-      // Por definir
-      {
-        text: "id",
-        value: "id"
-      },
-      {
-        text: "name",
-        value: "fullname"
-      },
-      {
-        text: "email",
-        value: "email"
-      },
-      {
-        text: "phone",
-        value: "phone_number"
-      },
-      {
-        sortable: false,
-        text: "Actions",
-        value: "actions",
-        align: "right"
-      }
-    ],
-    person: [
-      {
-        id: "1111",
-        fullname: "Carlos",
-        email: "asdas",
-        phone_number: "123123"
-      },
-      {
-        id: "222",
-        fullname: "Vic",
-        email: "asdas",
-        phone_number: "123123"
-      }
-    ],
-    fab: null,
-    hidden: false,
-    tabs: "one"
-  }),
-  computed: {
-    activeFab() {
-      switch (this.tabs) {
-        case "one":
-          return { color: "success", icon: "mdi-plus" };
-        case "two":
-          return { color: "red", icon: "edit" };
-        case "three":
-          return { color: "green", icon: "keyboard_arrow_up" };
-        default:
-          return {};
-      }
-    }
-  },
-  methods: {
-showKitchen:function (item){
-    this.$router.push({
-        name: "KitchensForm",
-        query: { mode: "show" },
-        params:{itemData:item}
-      });
-},
-editKitchen:function (item){
-    this.$router.push({
-        name: "KitchensForm",
-        query: { mode: "edit" },
-        params:{itemData:item}
+      editKitchen: function (item) {
+        this.$router.push({
+          name: 'KitchensForm',
+          query: { mode: 'edit' },
+          params: { itemData: item },
 
-      });
-},
-deleteKitchen:function (item){
-console.log(item);
-
-},
-    onHandlerCreate() {
-      this.$router.push({
-        name: "KitchensForm",
-        query: { mode: "create" }
-      });
-    }
+        })
+      },
+      deleteKitchen: function (item) {
+        console.log(item)
+      },
+      onHandlerCreate () {
+        this.$router.push({
+          name: 'KitchensForm',
+          query: { mode: 'create' },
+        })
+      },
+    },
   }
-}
 </script>
 
 <style>
