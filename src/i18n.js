@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 
-import ar from 'vuetify/lib/locale/ar'
+import es from 'vuetify/lib/locale/es'
 import en from 'vuetify/lib/locale/en'
 
 Vue.use(VueI18n)
@@ -11,9 +11,9 @@ const messages = {
     ...require('@/locales/en.json'),
     $vuetify: en,
   },
-  ar: {
-    ...require('@/locales/ar.json'),
-    $vuetify: ar,
+  es: {
+    ...require('@/locales/es.json'),
+    $vuetify: es,
   },
 }
 

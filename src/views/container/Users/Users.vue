@@ -11,7 +11,7 @@
     >
       <template v-slot:after-heading>
         <div class="display-2 font-weight-light">
-          {{ $t('users') }}
+          {{ $t('users.title') }}
         </div>
       </template>
 
@@ -103,7 +103,7 @@
 
 <script>
   import { getUsers } from '@/api/modules'
-
+  import i18n from '@/i18n'
   export default {
     name: 'DashboardDataTables',
 
@@ -111,19 +111,19 @@
       hidden: false,
       headers: [
         {
-          text: 'id',
+          text: i18n.t('users.id'),
           value: 'person.id',
         },
         {
-          text: 'name',
+          text: i18n.t('users.name'),
           value: 'person.fullname',
         },
         {
-          text: 'email',
+          text: i18n.t('users.email'),
           value: 'person.email',
         },
         {
-          text: 'phone',
+          text: i18n.t('users.phone'),
           value: 'person.phone_number',
         },
         {
@@ -165,7 +165,6 @@
         this.$router.push({
           name: 'UsersFrom',
           params: {
-            title: '',
             option: 1,
           },
         })
@@ -175,7 +174,6 @@
         this.$router.push({
           name: 'UsersFrom',
           params: {
-            title: '',
             option: 2,
             userData: item,
           },
@@ -186,10 +184,8 @@
         this.$router.push({
           name: 'UsersFrom',
           params: {
-            title: '',
             option: 3,
             userData: item,
-
           },
         })
       },
