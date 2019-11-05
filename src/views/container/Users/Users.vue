@@ -81,6 +81,22 @@
           </v-btn>
         </template>
       </v-data-table>
+      <v-card-text style="height: 100px; position: relative">
+        <v-fab-transition>
+          <v-btn
+            fab
+            dark
+            large
+            color="primary"
+            fixed
+            right
+            bottom
+            @click="createUser"
+          >
+            <v-icon>mdi-plus</v-icon>
+          </v-btn>
+        </v-fab-transition>
+      </v-card-text>
     </base-material-card>
   </v-container>
 </template>
@@ -92,6 +108,7 @@
     name: 'DashboardDataTables',
 
     data: () => ({
+      hidden: false,
       headers: [
         {
           text: 'id',
@@ -128,7 +145,7 @@
       search: undefined,
     }),
     async mounted () {
-      await this.loadUsersData()
+      // await this.loadUsersData()
     },
     methods: {
       async loadUsersData () {
@@ -143,18 +160,36 @@
         // window.getApp.$emit("SHOW_ERROR", params);
         }
       },
-      createdUser () {
+      createUser () {
         console.log('create')
+        this.$router.push({
+          name: 'UsersFrom',
+          params: {
+            title: '',
+            option: 1,
+          },
+        })
       },
       showUser (item) {
         console.log(item)
+        this.$router.push({
+          name: 'UsersFrom',
+          params: {
+            title: '',
+            option: 2,
+            userData: item,
+          },
+        })
       },
       editUser (item) {
         console.log(item)
         this.$router.push({
           name: 'UsersFrom',
           params: {
+            title: '',
+            option: 3,
             userData: item,
+
           },
         })
       },
