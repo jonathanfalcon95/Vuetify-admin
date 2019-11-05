@@ -58,15 +58,19 @@ export default new Router({
         },
         {
           name: 'Kitchens-Edit',
-          path: 'kitchens/kitchens-edit',
-          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit/Kitchen-Edit'),
+          path: 'kitchens/kitchens-edit/:id',
+          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit'),
 
         },
         {
           name: 'Kitchens-Show',
-          path: 'kitchens/kitchens-show',
-          component: () => import('@/views/dashboard/Kitchens/Kitchen-Show/Kitchen-Show'),
-
+          path: 'kitchens/kitchens-show/:id',
+          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit'),
+        },
+        {
+          name: 'Kitchens-Create',
+          path: 'kitchens/kitchens-create',
+          component: () => import('@/views/dashboard/Kitchens/Kitchen-Edit'),
         },
         // Kitchen
         {

@@ -45,7 +45,7 @@
             fab
             icon
             x-small
-            @click="onHandlerAction(action.router)"
+            @click="onHandlerAction(action.router, action.mode)"
           >
             <v-icon
               small
@@ -69,6 +69,7 @@
             left
             class="v-btn--example"
             v-on="on"
+            @click="onHandlerCreate"
           >
             <v-icon>{{ activeFab.icon }}</v-icon>
           </v-btn>
@@ -87,12 +88,14 @@
         {
           color: 'info',
           icon: 'mdi-information-outline',
-          router: 'kitchens-show',
+          router: 'kitchens-show/123',
+          mode: 'show',
         },
         {
           color: 'success',
           icon: 'mdi-pencil',
-          router: 'kitchens-edit',
+          router: 'kitchens-edit/123',
+          mode: 'edit',
         },
         {
           color: 'error',
@@ -156,12 +159,15 @@
         }
       },
     },
-    created () {
-      console.log(this.person)
-    },
     methods: {
-      onHandlerAction (router) {
-        this.$router.push(router)
+      onHandlerAction (router, mode) {
+        this.$router.push({ path: router, query: { mode: mode } })
+      },
+      onHandlerCreate () {
+        this.$router.push({
+          name: 'Kitchens-Create',
+          query: { mode: 'create' },
+        })
       },
     },
   }
