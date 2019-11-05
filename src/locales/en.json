@@ -46,6 +46,7 @@
     "confirm": "Confirm this action",
     "errors": "Errors"
   },
+  "back":"Back",
   "message": {
     "apiError401": "Incorrect credentials",
     "apiError404": "Service not available",
@@ -59,7 +60,8 @@
     "kitchen":"Kitchen",
     "kitchens":"Kitchens",
     "kitchen-edit":"Edit Kitchen",
-    "kitchen-show":"Kitchen"
+    "kitchen-show":"Kitchen",
+    "kitchen-create":"Create Kitchen"
   },
   "vendors":{
     "vendor":"Vendor",

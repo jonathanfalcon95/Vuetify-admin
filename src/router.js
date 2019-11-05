@@ -62,16 +62,15 @@ export default new Router({
 
         },
         {
-          name: 'Kitchens-Edit',
-          path: 'kitchens/kitchens-edit',
-          component: () => import('@/views/container/Kitchens/Kitchen-Edit/Kitchen-Edit'),
+          name: 'KitchensForm',
+          path: 'kitchens/form',
+          component: () => import('@/views/container/Kitchens/KitchenForm'),
 
         },
         {
           name: 'Kitchens-Show',
           path: 'kitchens/kitchens-show',
-          component: () => import('@/views/container/Kitchens/Kitchen-Show/Kitchen-Show'),
-
+          component: () => import('@/views/container/Kitchens/KitchenForm'),
         },
         // Kitchen
         {

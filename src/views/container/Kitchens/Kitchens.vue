@@ -38,18 +38,45 @@
       >
         <template v-slot:item.actions="{ item }">
           <v-btn
-            v-for="(action, i) in actions"
-            :key="i"
-            :color="action.color"
-            class="ml-1 text-right"
+
+            :key="1"
+            color="blue"
             fab
-            icon
+            class="px-1 ml-1"
             x-small
-            @click="onHandlerAction(action.router)"
+            @click="showKitchen(item)"
           >
             <v-icon
               small
-              v-text="action.icon"
+              v-text="'mdi-eye'"
+            />
+          </v-btn>
+          <v-btn
+
+            :key="2"
+            color="primary"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="editKitchen(item)"
+          >
+            <v-icon
+              small
+              v-text="'mdi-pencil'"
+            />
+          </v-btn>
+          <v-btn
+
+            :key="3"
+            color="secondary"
+            fab
+            class="px-1 ml-1"
+            x-small
+            @click="deleteKitchen(item)"
+          >
+            <v-icon
+              small
+              v-text="'mdi-delete'"
             />
           </v-btn>
         </template>
@@ -69,6 +96,7 @@
             left
             class="v-btn--example"
             v-on="on"
+            @click="onHandlerCreate"
           >
             <v-icon>{{ activeFab.icon }}</v-icon>
           </v-btn>
@@ -85,18 +113,18 @@
       search: '',
       actions: [
         {
-          color: 'info',
-          icon: 'mdi-information-outline',
-          router: 'kitchens-show',
+          color: 'blue',
+          icon: 'mdi-eye',
+          mode: 'show',
         },
         {
-          color: 'success',
+          color: 'primary',
           icon: 'mdi-pencil',
-          router: 'kitchens-edit',
+          mode: 'edit',
         },
         {
-          color: 'error',
-          icon: 'mdi-close',
+          color: 'secondary',
+          icon: 'mdi-delete',
         },
       ],
       headers: [
@@ -156,12 +184,30 @@
         }
       },
     },
-    created () {
-      console.log(this.person)
-    },
     methods: {
-      onHandlerAction (router) {
-        this.$router.push(router)
+      showKitchen: function (item) {
+        this.$router.push({
+          name: 'KitchensForm',
+          query: { mode: 'show' },
+          params: { itemData: item },
+        })
+      },
+      editKitchen: function (item) {
+        this.$router.push({
+          name: 'KitchensForm',
+          query: { mode: 'edit' },
+          params: { itemData: item },
+
+        })
+      },
+      deleteKitchen: function (item) {
+        console.log(item)
+      },
+      onHandlerCreate () {
+        this.$router.push({
+          name: 'KitchensForm',
+          query: { mode: 'create' },
+        })
       },
     },
   }
