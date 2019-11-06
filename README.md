@@ -11,22 +11,13 @@ You can also run additional npm tasks such as
 - `npm run build` to build your app for production
 - `npm run lint` to run linting.
 
-# Clear Project
+## Clear Project
 --`npm run lint`
 
 ## Demo
 
 - [Start page](https://demos.creative-tim.com/vuetify-material-dashboard-pro?ref=vtymdp-readme)
-- [Notifications page](https://demos.creative-tim.com/vuetify-material-dashboard-pro/widgets?ref=vtymdp-readme)
 
-[View More](https://demos.creative-tim.com/vuetify-material-dashboard-pro?ref=vtymdp-readme).
-
-
-## Quick start
-
-Quick start options:
-
-- Download from [Creative Tim](https://www.creative-tim.com/product/vuetify-material-dashboard-pro?ref=vtymdp-readme)
 
 
 ## Documentation
