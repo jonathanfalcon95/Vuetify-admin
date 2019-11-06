@@ -106,6 +106,8 @@
 </template>
 
 <script>
+  import i18n from '@/i18n'
+
   export default {
     data () {
       return {
@@ -115,22 +117,22 @@
         selectedItem: '',
         headers: [
           {
-            text: 'id',
+            text: i18n.t('users.id'),
             value: 'id',
           },
           {
-            text: 'name',
+            text: i18n.t('users.name'),
             value: 'fullname',
           },
           {
-            text: 'email',
+            text: i18n.t('users.email'),
             value: 'email',
           },
           {
-            text: 'phone',
+            text: i18n.t('users.phone'),
             value: 'phone_number',
           }, {
-            text: 'rol',
+            text: i18n.t('users.role'),
             value: 'rol',
           },
           {

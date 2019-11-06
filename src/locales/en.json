@@ -7,7 +7,6 @@
   "ct": "CT",
   "dashboard": "Dashboard",
   "dtables": "Data Tables",
-  "users": "Users",
   "eforms": "Extended Forms",
   "error": "Error Page",
   "etables": "Extended Tables",
@@ -46,15 +45,34 @@
     "confirm": "Confirm this action",
     "errors": "Errors"
   },
-  "back":"Back",
+  "users":{
+     "title":"Users",
+     "create":"Create User",
+     "edit": "Edit User",
+     "show": "Show User",
+     "id":"ID User",
+     "username":"Username",
+     "name":"Name",
+     "lastname":"Lastname",
+     "fullname":"fulname",
+     "email":"Email",
+     "phone":"Phone",
+     "role":"role"
+
+  },
+  "crud":{
+     "create":"Create",
+     "edit":"Edit",
+     "delete":"Delete",
+     "show":"Show"
+  },
   "message": {
     "apiError401": "Incorrect credentials",
     "apiError404": "Service not available",
     "apiError405_406": "Invalid request",
     "apiError500": "Connection error",
     "apiErrorUndefined": "General Application Error",
-    "invalidKey": "Invalid key",
-    "succesfulPay": "Succesful pay!"
+    "invalidKey": "Invalid key"
   },
   "kitchens":{
     "kitchen":"Kitchen",

@@ -214,11 +214,11 @@
         },
         {
           group: '/users',
-          icon: 'mdi-grid',
-          title: 'users',
+          icon: 'mdi-account-tie',
+          title: 'users.title',
           children: [
             {
-              title: 'users',
+              title: 'users.title',
               to: 'users',
             },
           ],
