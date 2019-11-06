@@ -180,8 +180,8 @@
       v-model="snackbar"
       :type="color"
       v-bind="{
-        [parsedDirection[0]]: true,
-        [parsedDirection[1]]: true
+        'center': true,
+        'top': true
       }"
     >
       Welcome to <span class="font-weight-bold">&nbsp;MATERIAL DASHBOARD PRO&nbsp;</span> — a beautiful admin panel for every web developer.

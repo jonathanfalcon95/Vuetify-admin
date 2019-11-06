@@ -57,7 +57,7 @@
      "fullname":"fulname",
      "email":"Email",
      "phone":"Phone",
-     "role":"role"
+     "role":"Role"
 
   },
   "crud":{
