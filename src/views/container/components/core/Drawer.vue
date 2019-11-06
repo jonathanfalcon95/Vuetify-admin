@@ -235,6 +235,17 @@
           ],
         },
         {
+          group: '/usersroles',
+          icon: 'mdi-account-group',
+          title: 'UsersRoles.UsersRoles',
+          children: [
+            {
+              title: 'UsersRoles.UsersRoles',
+              to: 'usersroles',
+            },
+          ],
+        },
+        {
           group: '/vendors',
           icon: 'mdi-account-tie',
           title: 'vendors.vendors',
