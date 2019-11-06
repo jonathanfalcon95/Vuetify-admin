@@ -2,12 +2,10 @@ export default [
   {
     name: 'SHOW_MESSAGE',
     callback: function (params) {
-      // this.$toasted.show(params.text);
-      this.snackbar = {
-        show: true,
-        color: 'green',
-        text: params.text,
-      }
+       this.$toasted.show(params.text, {
+        theme: 'outline',
+        position: 'top-right',
+        duration: 5000 })
     },
   },
   {
