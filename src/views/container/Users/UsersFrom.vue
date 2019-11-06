@@ -12,10 +12,6 @@
             background-color="transparent"
             slider-color="white"
           >
-            <span
-              class="subheading font-weight-light mx-3"
-              style="align-self: center"
-            >  {{ getTitle }}</span>
             <v-tab class="mr-3">
               <v-icon class="mr-2">
                 mdi-account
@@ -51,7 +47,7 @@
           v-model="tabs"
           class="transparent"
         >
-          <v-tab-item>
+          <v-tab-item :kei="0">
             <v-form>
               <v-container class="py-0">
                 <v-row>
@@ -127,7 +123,49 @@
               </v-container>
             </v-form>
           </v-tab-item>
-          <v-tab-item />
+          <v-tab-item :kei="1">
+            <v-form>
+              <v-container class="py-0">
+                <v-row>
+                  <v-col
+                    cols="12"
+                    sm="12"
+                  >
+                    <v-select
+                      color="secondary"
+                      item-color="secondary"
+                      :label="$t('users.role')"
+                      multiple
+                      :items="role"
+                    >
+                      <template v-slot:item="{ attrs, item, on }">
+                        <v-list-item
+                          v-bind="attrs"
+                          active-class="secondary elevation-4 white--text"
+                          class="mx-3 mb-2 v-sheet"
+                          elevation="0"
+                          v-on="on"
+                        >
+                          <v-list-item-content>
+                            <v-list-item-title v-text="item" />
+                          </v-list-item-content>
+
+                          <v-scale-transition>
+                            <v-list-item-icon
+                              v-if="attrs.inputValue"
+                              class="my-3"
+                            >
+                              <v-icon>mdi-check</v-icon>
+                            </v-list-item-icon>
+                          </v-scale-transition>
+                        </v-list-item>
+                      </template>
+                    </v-select>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-form>
+          </v-tab-item>
         </v-tabs-items>
       </base-material-card>
     </v-row>
@@ -136,8 +174,10 @@
 
 <script>
   import i18n from '@/i18n'
+  import { editUsers, createUsers } from '@/api/modules'
   export default {
     data: () => ({
+      tabs: 0,
       option: 0,
       title: '',
       userData: {
@@ -150,6 +190,15 @@
           phone_number: '',
         },
       },
+      role: [
+        'Fight Club',
+        'Godfather',
+        'Godfather II',
+        'Godfather III',
+        'Goodfellas',
+        'Pulp Fiction',
+        'Scarface',
+      ],
     }),
     computed: {
       getTitle () {
@@ -172,11 +221,29 @@
     methods: {
       initialize () {
         this.option = this.$route.params.option
-        if (this.option === 3 || this.option === 2) {
-          this.userData = this.$route.params.userData
-        }
-
-        console.log(this.title)
+        if (this.option === 3 || this.option === 2) { this.userData = this.$route.params.userData }
+      },
+      async submit () {
+        if (this.option === 1) {
+          let serviceResponse = await createUsers(this.userData)
+          if (serviceResponse.ok === 1) {
+            console.log(serviceResponse)
+          } else {
+            console.log(serviceResponse)
+            const params = { text: serviceResponse.message.text }
+            window.getApp.$emit('SHOW_ERROR', params)
+          }
+        } else
+          if (this.option === 3) {
+            let serviceResponse = await editUsers(this.userData.id, this.userData)
+            if (serviceResponse.ok === 1) {
+              console.log(serviceResponse)
+            } else {
+              console.log(serviceResponse)
+              const params = { text: serviceResponse.message.text }
+              window.getApp.$emit('SHOW_ERROR', params)
+            }
+          }
       },
     }, //
   }

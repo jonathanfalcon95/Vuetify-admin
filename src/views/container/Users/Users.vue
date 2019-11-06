@@ -104,6 +104,7 @@
 <script>
   import { getUsers } from '@/api/modules'
   import i18n from '@/i18n'
+
   export default {
     name: 'DashboardDataTables',
 
@@ -145,7 +146,7 @@
       search: undefined,
     }),
     async mounted () {
-      // await this.loadUsersData()
+      // window.getApp.$emit("SHOW_ERROR", "34534535")
     },
     methods: {
       async loadUsersData () {
@@ -156,8 +157,8 @@
           this.items = serviceResponse.data
         } else {
           console.log(serviceResponse)
-        // const params = { text: serviceResponse.message.text };
-        // window.getApp.$emit("SHOW_ERROR", params);
+          const params = { text: serviceResponse.message.text }
+          window.getApp.$emit('SHOW_ERROR', params)
         }
       },
       createUser () {
@@ -165,7 +166,7 @@
         this.$router.push({
           name: 'UsersFrom',
           params: {
-            option: 1,
+            option: 1, // option 1 to create
           },
         })
       },
@@ -174,7 +175,7 @@
         this.$router.push({
           name: 'UsersFrom',
           params: {
-            option: 2,
+            option: 2, // option 2 to show
             userData: item,
           },
         })
@@ -184,7 +185,7 @@
         this.$router.push({
           name: 'UsersFrom',
           params: {
-            option: 3,
+            option: 3, // option 3 to edit
             userData: item,
           },
         })

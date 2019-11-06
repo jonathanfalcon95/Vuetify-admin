@@ -1,23 +1,15 @@
 import { apiHttp } from '../axiosApi.js'
 import {
 
-  userPath,
+  userPath, userSave,
 
 } from '../config/apiRoute.js'
 
-// export const createUserApi = body => apiHttp('POST', `${mobileUserPath}`, body)
+export const createUsers = (body) =>
+  apiHttp('POST', `${userSave}`, body)
 
-// export const becomeAffiliateApi = person_id =>
-//   apiHttp('PUT', `${appCardsData}/request/${person_id}`)
-
-// export const createAppPersonApi = (userId, body) =>
-//   apiHttp('POST', `${appPersonPath}/${userId}`, body)
-
-// export const updateUserApi = (userId, body) =>
-//   apiHttp('PUT', `${mobileUserPath}/${userId}`, body)
-
-// export const changePassUserApi = (userId, password) =>
-//   apiHttp('PUT', `${userPath}/password/${userId}`, { password })
+export const editUsers = (userId, body) =>
+  apiHttp('PUT', `${userSave}/${userId}`, body)
 
 export const getUsers = () =>
   apiHttp('GET', `${userPath}`)

@@ -15,15 +15,16 @@
         </div>
       </template>
 
+
       <v-dialog
         v-model="dialog"
         scrollable
         max-width="300px"
       >
+
         <template v-slot:activator="{ on }">
           <v-card>
             <v-card-title>
-              {{ $t("users") }}
               <v-spacer />
               <v-text-field
                 v-model="search"

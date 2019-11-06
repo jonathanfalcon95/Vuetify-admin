@@ -58,7 +58,7 @@
      "fullname":"Nombre Completo",
      "email":"Correo",
      "phone":"teléfono",  
-     "role":"role" 
+     "role":"Rol" 
  },
  "crud":{
   "create":"Crear",

@@ -22,9 +22,12 @@ import './plugins/vue-world-map'
 import vuetify from './plugins/vuetify'
 import i18n from './i18n'
 import VueLoading from 'vuejs-loading-plugin'
-
+import Toasted from 'vue-toasted'
 Vue.config.productionTip = false
 Vue.use(VueLoading)
+Vue.use(Toasted, {
+  iconPack: 'material', // set your iconPack, defaults to material. material|fontawesome|custom-class
+})
 new Vue({
   router,
   store,
