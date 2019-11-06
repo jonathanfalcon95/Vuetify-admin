@@ -24,7 +24,7 @@
               md="6"
             >
               <v-text-field
-                v-model="this.itemData.fullname"
+                v-model="itemData.fullname"
                 label="Kitchen Name"
               />
             </v-col>
@@ -33,7 +33,7 @@
               md="6"
             >
               <v-text-field
-                v-model="this.itemData.email"
+                v-model="itemData.email"
                 label="Kitchen Email"
               />
             </v-col>

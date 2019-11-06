@@ -72,11 +72,17 @@ export default new Router({
           path: 'kitchens/kitchens-show',
           component: () => import('@/views/container/Kitchens/KitchenForm'),
         },
-        // Kitchen
         {
           name: 'Vendors',
           path: 'vendors/vendors',
           component: () => import('@/views/container/Vendors/Vendors'),
+        },
+        // Users Roles
+        {
+          name: 'UsersRoles',
+          path: 'usersroles/usersroles',
+          component: () => import('@/views/container/UsersRoles/UsersRoles'),
+
         },
         // Pages
         {
