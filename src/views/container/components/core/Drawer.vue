@@ -130,28 +130,39 @@
             },
           ],
         },
-        // {
-        //   group: '/kitchens',
-        //   icon: 'mdi-coffee-maker',
-        //   title: 'kitchens.kitchens',
-        //   children: [
-        //     {
-        //       title: 'kitchens.kitchens',
-        //       to: 'kitchens',
-        //     },
-        //   ],
-        // },
-        // {
-        //   group: '/vendors',
-        //   icon: 'mdi-account-tie',
-        //   title: 'vendors.vendors',
-        //   children: [
-        //     {
-        //       title: 'vendors.vendors',
-        //       to: 'vendors',
-        //     },
-        //   ],
-        // },
+        {
+          group: '/kitchens',
+          icon: 'mdi-coffee-maker',
+          title: 'kitchens.kitchens',
+          children: [
+            {
+              title: 'kitchens.kitchens',
+              to: 'kitchens',
+            },
+          ],
+        },
+        {
+          group: '/vendors',
+          icon: 'mdi-account-tie',
+          title: 'vendors.vendors',
+          children: [
+            {
+              title: 'vendors.vendors',
+              to: 'vendors',
+            },
+          ],
+        },
+        {
+          group: '/usersroles',
+          icon: 'mdi-account-group',
+          title: 'UsersRoles.UsersRoles',
+          children: [
+            {
+              title: 'UsersRoles.UsersRoles',
+              to: 'usersroles',
+            },
+          ],
+        },
 
       ],
     }),

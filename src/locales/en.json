@@ -78,7 +78,16 @@
     "kitchen":"Kitchen",
     "kitchens":"Kitchens",
     "kitchen-edit":"Edit Kitchen",
-    "kitchen-show":"Kitchen"
+    "kitchen-show":"Kitchen",
+    "kitchen-create":"Create Kitchen"
+  },
+  "UsersRoles":{
+    "UsersRoles":"Users Roles",
+    "UserRole":"User Rol",
+    "TitleMsg":"Assignment of user roles",
+    "SelectRol":"Select a Rol",
+    "Save":"Save",
+    "Close":"Close"
   },
   "vendors":{
     "vendor":"Vendor",

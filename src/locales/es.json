@@ -78,8 +78,17 @@
     "kitchen":"Cocina",
     "kitchens":"Cocinas",
     "kitchen-edit":"Editar Cocina",
-    "kitchen-show":"Cocina"
+    "kitchen-show":"Cocina",
+    "kitchen-create":"Crear Cocina"
 
+  },
+  "UsersRoles":{
+    "UsersRoles":"Roles de Usuario",
+    "UserRol":"Rol de Usuario",
+    "TitleMsg":"Asignacion de Roles de Usuario",
+    "SelectRol":"Selecciona un Rol",
+    "Save":"Guardar",
+    "Close":"Cerrar"
   },
   "vendors":{
     "vendor":"Vendedor",
