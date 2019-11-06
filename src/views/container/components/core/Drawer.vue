@@ -29,14 +29,14 @@
 
     <v-divider class="mb-1" />
 
-    <v-list
+    <!-- <v-list
       dense
       nav
     >
       <base-item-group :item="profile" />
     </v-list>
 
-    <v-divider class="mb-2" />
+    <v-divider class="mb-2" /> -->
 
     <v-list
       expand
@@ -95,18 +95,7 @@
           icon: 'mdi-image',
           title: 'pages',
           children: [
-            {
-              title: 'pricing',
-              to: 'pricing',
-            },
-            {
-              title: 'rtl',
-              to: 'rtl',
-            },
-            {
-              title: 'timeline',
-              to: 'timeline',
-            },
+
             {
               title: 'login',
               to: 'login',
@@ -129,89 +118,7 @@
             },
           ],
         },
-        {
-          group: '/components',
-          icon: 'mdi-view-comfy',
-          title: 'components',
-          children: [
-            {
-              title: 'multi',
-              group: '',
-              children: [
-                {
-                  title: 'example',
-                  href: '#',
-                },
-              ],
-            },
-            {
-              title: 'buttons',
-              to: 'buttons',
-            },
-            {
-              title: 'grid',
-              to: 'grid-system',
-            },
-            {
-              title: 'tabs',
-              to: 'tabs',
-            },
-            {
-              title: 'notifications',
-              to: 'notifications',
-            },
-            {
-              title: 'icons',
-              to: 'icons',
-            },
-            {
-              title: 'typography',
-              to: 'typography',
-            },
-          ],
-        },
-        {
-          group: '/forms',
-          icon: 'mdi-clipboard-outline',
-          title: 'forms',
-          children: [
-            {
-              title: 'rforms',
-              to: 'regular',
-            },
-            {
-              title: 'eforms',
-              to: 'extended',
-            },
-            {
-              title: 'vforms',
-              to: 'validation',
-            },
-            {
-              title: 'wizard',
-              to: 'wizard',
-            },
-          ],
-        },
-        {
-          group: '/tables',
-          icon: 'mdi-grid',
-          title: 'tables',
-          children: [
-            {
-              title: 'rtables',
-              to: 'regular-tables',
-            },
-            {
-              title: 'etables',
-              to: 'extended-tables',
-            },
-            {
-              title: 'dtables',
-              to: 'data-tables',
-            },
-          ],
-        },
+
         {
           group: '/users',
           icon: 'mdi-account-tie',
@@ -223,58 +130,29 @@
             },
           ],
         },
-        {
-          group: '/kitchens',
-          icon: 'mdi-coffee-maker',
-          title: 'kitchens.kitchens',
-          children: [
-            {
-              title: 'kitchens.kitchens',
-              to: 'kitchens',
-            },
-          ],
-        },
-        {
-          group: '/vendors',
-          icon: 'mdi-account-tie',
-          title: 'vendors.vendors',
-          children: [
-            {
-              title: 'vendors.vendors',
-              to: 'vendors',
-            },
-          ],
-        },
-        {
-          group: '/maps',
-          icon: 'mdi-map-marker',
-          title: 'maps',
-          children: [
-            {
-              title: 'google',
-              to: 'google-maps',
-            },
-            {
-              title: 'fullscreen',
-              to: 'full-screen-map',
-            },
-          ],
-        },
-        {
-          icon: 'mdi-widgets',
-          title: 'widgets',
-          to: '/widgets',
-        },
-        {
-          icon: 'mdi-chart-timeline-variant',
-          title: 'charts',
-          to: '/charts',
-        },
-        {
-          icon: 'mdi-calendar-range',
-          title: 'calendar',
-          to: '/calendar',
-        },
+        // {
+        //   group: '/kitchens',
+        //   icon: 'mdi-coffee-maker',
+        //   title: 'kitchens.kitchens',
+        //   children: [
+        //     {
+        //       title: 'kitchens.kitchens',
+        //       to: 'kitchens',
+        //     },
+        //   ],
+        // },
+        // {
+        //   group: '/vendors',
+        //   icon: 'mdi-account-tie',
+        //   title: 'vendors.vendors',
+        //   children: [
+        //     {
+        //       title: 'vendors.vendors',
+        //       to: 'vendors',
+        //     },
+        //   ],
+        // },
+
       ],
     }),
 
